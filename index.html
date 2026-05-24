@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="SPO_F..css">
+    <title>SPO F - Plataforma de Música e Instrumentos</title>
+</head>
+<body>
+    
+    <header class="entete-principale">
+        <div class="logo" onclick="afficherAccueil()">▶ IBOUNDOUBLACK MEDIA</div>
+        
+        <div class="barre-recherche">
+            <input type="text" id="search-input" placeholder="Buscar música, productos, eventos...">
+            <div id="suggestions-box" class="boite-suggestions"></div>
+        </div>
+
+        <nav class="navigation-header">
+            <button onclick="naviguerVers('section-accueil')">Inicio</button>
+            <button onclick="naviguerVers('section-ecouter')">Escuchar</button>
+            <button onclick="naviguerVers('section-tienda')">Tienda</button>
+            <button onclick="naviguerVers('section-ver')">Eventos</button>
+            <button onclick="naviguerVers('section-historias')">Historias y Referencias</button> 
+        </nav>
+
+        <div class="zone-utilisateur">
+            <button id="btn-registrar-header" onclick="ouvrirInscriptionLarge()">Registrarse</button>
+            <div id="user-profile" class="profil-utilisateur" style="display: none;" onclick="toggleUserMenu()">
+                <span id="header-username">Usuario</span>
+                <span id="header-solde" class="solde-badge">0.00 €</span>
+                <div id="user-menu" class="menu-deroulant">
+                    <button onclick="ouvrirModal(modalRecharge)">Cargar Saldo</button>
+                    <button onclick="ouvrirPanier()">Ver Carrito</button>
+                    <button onclick="deconnexion()">Cerrar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+
+    <main> 
+
+ <div id="section-accueil" class="page-content" style="display: block; padding: 0; margin: 0;">
+
+
+            <div id="resultats-recherche-accueil" style="display: none; padding: 20px; background: rgba(255, 255, 255, 0.05); border: 2px solid #d4af37; margin: 20px; border-radius: 8px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+        <h2 style="color: #d4af37; margin: 0;">Resultado de tu búsqueda</h2>
+        <button onclick="fermerResultatsAccueil()" style="background: #ff4444; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 4px;">&times; Cerrar</button>
+    </div>
+    <div id="conteneur-resultat-cible" class="grille-produits" style="display: flex; gap: 20px; flex-wrap: wrap;">
+        </div>
+</div>
+
+                <section class="apple-hero-section">
+        <div class="apple-hero-left">
+            <h1 class="apple-hero-title">Escucha, Mira, Aprende</h1>
+            <p class="apple-hero-subtitle">El mundo completo de la música clásica a tu alcance</p>
+            <button class="apple-hero-btn" onclick="ouvrirModalInscription()">14 DÍAS GRATIS</button>
+        </div>
+        <div class="apple-hero-right">
+            <img src="London Symphony Orch..jpg" alt="Interface Music" class="hero-single-image">
+        </div>
+    </section>
+
+
+      <section class="sabat-artists-section">
+    <div class="sabat-container">
+        
+        <div class="artists-grid">
+            <div class="artist-thumb"><img src="Yuki Numata Resnick.jfif" alt="Yuja Wang"></div>
+            <div class="artist-thumb"><img src="Ryuichi Sakamoto.jfif" alt="Chef d'orchestre"></div>
+            <div class="artist-thumb"><img src="olafur arnalds.jpg" alt="Cantatrice"></div>
+            
+            <div class="artist-thumb"><img src="Nils Frahm.jfif" alt="Chanteur"></div>
+            <div class="artist-thumb"><img src="Yo-Yo_Ma_in_2018_(cropped).jpg" alt="Yo-Yo Ma"></div>
+            <div class="artist-thumb"><img src="ludovico.jfif" alt="Corniste"></div>
+            
+            <div class="artist-thumb"><img src="Hania Rani.jfif" alt="Violoncelliste"></div>
+            <div class="artist-thumb"><img src="Hildur Guðnadóttir.jfif" alt="Artiste Pop/Classique"></div>
+            <div class="artist-thumb"><img src="Joep Beving.jfif" alt="Guitariste"></div>
+        </div>
+
+        <div class="testimonial-block">
+            <h2 class="testimonial-title">Todos tus artistas favoritos en un solo lugar</h2>
+            
+            <div class="quote-wrapper">
+                <span class="quote-icon">“</span>
+                <blockquote>
+                    Adoro IBOUNDOUBLACK. Es fácil de usar y acerca la música clásica a personas de todo el mundo. Estoy muy contenta de poder compartir esta gran plataforma con mis fans.
+                </blockquote>
+                <cite class="quote-author">YUJA WANG, PIANISTA.</cite>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+    <section class="fabio-section bg-light-products" style="margin-bottom: 40px; padding: 0;">
+    <div style="width: 93%; margin: 0 auto; padding: 0;">
+        
+        <div class="idagio-features-grid">
+            
+            <div class="feature-card">
+                <div class="feature-image-wrapper">
+                    <img src="image-R4kxQnIfIpoVnUrHw3sL_.webp" alt="Búsqueda diseñada para la música clásica">
+                </div>
+                <h4>Búsqueda diseñada para la música clásica</h4>
+                <p>Refina tu búsqueda por directores, intérpretes o incluso orquestas específicas para encontrar la grabación perfecta, o embárcate en un viaje de descubrimiento: nuestras potentes herramientas te abren las puertas a ambos.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-image-wrapper">
+                    <img src="image-AObxvYtJuct0LC86vxGhc.webp" alt="Selección experta">
+                </div>
+                <h4>Selección experta</h4>
+                <p>¿No sabes por dónde empezar? Nuestro equipo de expertos estará encantado de ofrecerte una selección inigualable a través de listas de reproducción recomendadas y contenidos destacados. En IBOUNDOUBLACK nos enorgullece colaborar con grandes artistas para compartir sus grabaciones favoritas con la comunidad.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-image-wrapper">
+                    <img src="image-RnOoTuYH9LbOreVJqF3BM.webp" alt="La más alta calidad de sonido">
+                </div>
+                <h4>La más alta calidad de sonido</h4>
+                <p>Saca el máximo partido a nuestro catálogo con la máxima calidad de audio, acercándote lo más posible a la música para disfrutar de incontables horas de escucha con una precisión excepcional. Viaja por el mundo de la música clásica con calidad de sonido sin pérdidas (FLAC 16-bit 44.1kHz).</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-image-wrapper">
+                    <img src="image-TuSiyy3erHfZXg9oqJgxI.webp" alt="Más de 2.5 millones de pistas">
+                </div>
+                <h4>Más de 2.5 millones de pistas al alcance de tu mano</h4>
+                <p>Sin archivos duplicados, IBOUNDOUBLACK cuenta con uno de los catálogos más grandes del mundo con más de 2.5 millones de pistas para escuchar: nunca te quedarás sin música.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-image-wrapper">
+                    <img src="image-IJNlRKR_jibsHcqzHfp-k.webp" alt="Crea tu propia biblioteca">
+                </div>
+                <h4>Crea tu propia biblioteca clásica digital</h4>
+                <p>Personaliza tu experiencia musical creando tus propias listas de reproducción. Haz crecer tu biblioteca añadiendo obras, grabaciones o incluso tus artistas favoritos a tu Colección personal.</p>
+            </div>
+
+        </div>
+
+        <div style="display: none;">
+            <video class="piste" id="01" src="Ludovico Einaudi - Nuvole Bianche.mp4" data-creator="ludovico Einaudi" data-titulo="Nuvile Bianche" data-solistas="ludovico Einaudi" data-instrument-principal="Piano" data-genero="Neo-classica" data-freemium="si (MP3 128kbps)" data-abono="Inclus(FLAC Hi-Res)" data-compra-por-pista="18.49" onclick="apercuVersLecteur('Ludovico Einaudi - Nuvole Bianche.mp4', 'Nuvile Bianche', 'Ludovico Einaudi')"></video>
+            <video class="piste" id="06" src="videoplayback (1).mp4" data-creator="Olafur arnalds" data-titulo="Doria" data-solistas="Olafur arnalds" data-instrument-principal="Piano / Électro" data-genero="Classique Contemporain" data-freemium="freemium si (MP3 128kbps)" data-abono="Inclus (FLAC Hi-Res)" data-compra-por-pista="1.49" onclick="apercuVersLecteur('videoplayback (1).mp4', 'Doria', 'Olafur Arnalds')"></video>
+            <video class="piste" id="02" src="vidssave.com Ludovico Einaudi - Nuvole Bianche (Live From The Steve Jobs Theatre _ 2019) 360P.mp4" data-creator="Max Richter" data-titulo="Nuvile Bianche" data-solistas="Louisa Fuller" data-instrument-principal="Quintette à cordes" data-genero="Minimalisme" data-freemium="freemium si Extrat 30 sec" data-abono="Inclus (FLAC Hi-Res)" data-compra-por-pista="1.99" onclick="apercuVersLecteur('vidssave.com Ludovico Einaudi - Nuvole Bianche (Live From The Steve Jobs Theatre _ 2019) 360P.mp4', 'Nuvile Bianche (Live)', 'Max Richter')"></video>
+            <div id="barre-prog-1"></div><div id="barre-prog-2"></div><div id="barre-prog-3"></div>
+        </div>
+
+    </div>
+</section>
+
+</div>
+
+
+
+<div id="modal-inscription" class="modal-inscription-overlay" style="display: none;">
+    <div class="modal-inscription-content">
+        <span class="modal-inscription-close" onclick="fermerModalInscription()">&times;</span>
+        <h2>Empieza tus 14 días gratis</h2>
+        <p>Introduce tus datos para activar el periodo de prueba. <strong>Hoy pagarás 0 €</strong>.</p>
+        
+        <form onsubmit="validerInscription(event)">
+            <input type="text" placeholder="Nombre completo" required>
+            <input type="email" placeholder="Correo electrónico" required>
+            <input type="password" placeholder="Contraseña" required>
+            
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0 15px 0; padding-top: 15px; text-align: left;">
+                <span style="font-size: 12px; color: #8a99ad; font-weight: bold; letter-spacing: 1px;">MÉTODO DE PAGO</span>
+            </div>
+
+            <div class="credit-card-input-container">
+                <div style="position: relative; width: 100%;">
+                    <input type="text" placeholder="Número de tarjeta (0000 0000 0000 0000)" maxlength="19" required style="padding-left: 40px;">
+                    <span style="position: absolute; left: 12px; top: 12px; font-size: 16px;">💳</span>
+                </div>
+                
+                <div style="display: flex; gap: 10px; width: 100%;">
+                    <input type="text" placeholder="MM/AA" maxlength="5" required style="flex: 1; text-align: center;">
+                    <input type="text" placeholder="CVC" maxlength="3" required style="flex: 1; text-align: center;">
+                </div>
+            </div>
+            <p style="font-size: 11px; color: #8a99ad; margin: 15px 0; text-align: left; line-height: 1.4;">
+                🔒 Pago seguro encriptado. No se realizará ningún cargo hoy. Puedes cancelar tu suscripción en cualquier momento.
+            </p>
+            <button type="submit" class="btn-submit-inscription">Comenzar mi prueba gratis</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+        <div id="section-tienda" class="page-contenu" style="display: none;">
+            <aside class="sidebar-tienda">
+                <div class="filtre-groupe">
+                    <h3>Categorías</h3>
+                    <ul>
+                        <li>Pianos de Cola</li>
+                        <li>Violines de Maestro</li>
+                        <li>Diapasón</li>
+                        
+                    </ul>
+                </div>
+
+                <div id="resume-livraison" class="info-livraison-box" style="position: relative;">
+                    <button onclick="annulerSelectionTienda()" style="position: absolute; top: 10px; right: 10px; background: none; border: none; color: #ff4444; font-weight: bold; cursor: pointer; font-size: 1.2em;">&times;</button>
+                    
+                    <h4>Detalles del Pedido</h4>
+                    <p>Producto: <span id="nom-selec">-</span></p>
+                    <p>Entrega: <span id="temps-selec">-</span></p>
+                    <p>Envío: <span id="frais-selec">0.00 €</span></p>
+                    <hr>
+                    <p class="total-final">TOTAL: <span id="total-selec">0.00 €</span></p>
+
+                    <div id="alerte-solde" style="color: #ff4444; font-weight: bold; margin: 10px 0; display: none;">
+                        Saldo insuficiente. Por favor, recargue su cuenta.
+                        <button onclick="ouvrirModal(modalRecharge)" style="background: #d4af37; color: black; border: none; padding: 5px 10px; cursor: pointer; display: block; margin-top: 5px; width: 100%; font-weight: bold;">Recargar ahora</button>
+                    </div>
+
+                    <button id="btn-acheter-tienda" class="btn-pay" style="width:100%; margin-top:10px;">Comprar</button>-
+                </div>
+            </aside>
+
+            <section class="grille-produits">
+                <div class="produit-card" onclick="calculerAchat(this)" marca="DAS Audio Vantec 6x20A/2x118A Bundle" data-prix="20890" marca="Rockjan" color="Negro" Peso="1,66 kilogramos" data-temps="10-15 días" > 
+                     <div class="produit-img"><img src="bafle2.JPG" alt="Audio" ondblclick="ouvrirZoomProduit(this.src, event)"></div>
+                    <div class="produit-info">
+                        <span class="categoria-label">Audio</span>
+                        <h4>DAS Audio Vantec 6x20A/2x118A Bundle</h4>
+                        <p class="produit-prix">20890 €</p>
+                    </div>
+                </div>
+
+                 <div class="produit-card" onclick="calculerAchat(this)" data-nom="Pearl Roadshow 22 Matte Red" data-prix="739" data-envio="12" data-temps="10-15 días">
+                    <div class="produit-img"><img src="baterie 2.JPG" alt="Casque"ondblclick="ouvrirZoomProduit(this.src, event)"></div>
+                    <div class="produit-info">
+                        <span class="categoria-label">Audio</span>
+                        <h4>Pearl Roadshow 22" Matte Red</h4>
+                        <p class="produit-prix">739 €</p>
+                    </div>
+                </div>
+
+                <div class="produit-card" onclick="calculerAchat(this)" data-nom="Yamaha Stage Custom Studio -RB" data-prix="1290" data-envio="150" data-temps="10-15 días"> 
+                     <div class="produit-img"><img src="bateria.JPG" alt="baterie"ondblclick="ouvrirZoomProduit(this.src, event)"></div>
+                    <div class="produit-info">
+                        <span class="categoria-label">Instrumentos</span>
+                        <h4>Yamaha Stage Custom Studio -RB</h4>
+                        <p class="produit-prix">1290 €</p>
+                    </div>
+                </div>
+
+                <div class="produit-card" onclick="calculerAchat(this)" data-nom="Musser M55G A=442" data-prix="1169000" data-envio="12" data-temps="10-15 días">
+                    <div class="produit-img"><img src="ballafon.JPG" alt="Piano" ondblclick="ouvrirZoomProduit(this.src, event)"></div>
+                    <div class="produit-info">
+                        <span class="categoria-label">Instrumentos</span>
+                        <h4>Musser M55G A=442</h4>
+                        <p class="produit-prix">39850 €</p>
+                    </div>
+                </div>
+                <div class="produit-card" onclick="calculerAchat(this)" data-nom="Kawai GX" data-prix="45000" marca="YAMAHA" color="One Color" Peso="5900 Gramos"> 
+                     <div class="produit-img"><img src="piano YAMAHA 59000.JPG" alt="Piano" ondblclick="ouvrirZoomProduit(this.src, event)"></div>
+                    <div class="produit-info">
+                        <span class="categoria-label">Instrumentos</span>
+                        <h4>Piano Steinway Gold</h4>
+                        <p class="produit-prix">45000 €</p>
+                    </div>
+                </div>
+
+                <div class="produit-card" onclick="calculerAchat(this)" data-nom="fagotes-tempranos" data-prix="350" data-envio="12" data-temps="10-15 días">
+                    <div class="produit-img"><img src="fagotes-tempranos-pie-de-foto-2.jpg" alt="Fagote" ondblclick="ouvrirZoomProduit(this.src, event)"></div>
+                    <div class="produit-info">
+                        <span class="categoria-label">Instrumentos</span>
+                        <h4>DIA</h4>
+                        <p class="produit-prix">350 €</p>
+                    </div>
+                </div>
+                <div class="produit-card" onclick="calculerAchat(this)" data-nom="Violonchelo" data-prix="3199" data-envio="150" data-temps="10-15 días"> 
+                     <div class="produit-img"><img src="VIOLON 29000.JPG" alt="Violon" ondblclick="ouvrirZoomProduit(this.src, event)"></div>
+                    <div class="produit-info">
+                        <span class="categoria-label">Instrumentos</span>
+                        <h4>Violonchelo 4/4</h4>
+                        <p class="produit-prix">3199 €</p>
+                    </div>
+                </div>
+
+                <div class="produit-card" onclick="calculerAchat(this)" data-nom="Fagote" data-prix="45000" marca="ZAMASS" color="One Color" Peso="5000 Gramos">
+                    <div class="produit-img"><img src="fagote.jpg" alt="Fagote" ondblclick="ouvrirZoomProduit(this.src, event)"></div>
+                    <div class="produit-info">
+                        <span class="categoria-label">Instrumentos</span>
+                        <h4>Fagote</h4>
+                        <p class="produit-prix">45000 €</p>
+                    </div>
+                </div>
+                <div class="produit-card" onclick="calculerAchat(this)" data-nom="Diapasón" data-prix="49" data-envio="150" data-temps="1-5 días"> 
+                     <div class="produit-img"><img src="DIAPASON.JPG" alt="Diapasón" ondblclick="ouvrirZoomProduit(this.src, event)"></div>
+                    <div class="produit-info">
+                        <span class="categoria-label">Instrumentos</span>
+                        <h4>Diapasón</h4>
+                        <p class="produit-prix">49 €</p>
+                    </div>
+                </div>
+
+                <div class="produit-card" onclick="calculerAchat(this)" data-nom="Diapasón" data-prix="19.50" data-envio="12" data-temps="1-5 días">
+                    <div class="produit-img"><img src="DIAPASON 19.50.JPG" alt="Diapasón" ondblclick="ouvrirZoomProduit(this.src, event)"></div>
+                    <div class="produit-info">
+                        <span class="categoria-label">Audio</span>
+                        <h4>Diapasón</h4>
+                        <p class="produit-prix">19.50 €</p>
+                    </div>
+                </div>
+                <div class="produit-card" onclick="calculerAchat(this)" data-nom="Diablo Guitar" data-prix="10681,95" data-envio="150" data-temps="10-15 días"> 
+                     <div class="produit-img"><img src="DIABLO GUI 2.JPG" alt="Guitare" ondblclick="ouvrirZoomProduit(this.src, event)"></div>
+                    <div class="produit-info">
+                        <span class="categoria-label">Instrumentos</span>
+                        <h4>Diablo Guitar</h4>
+                        <p class="produit-prix">10681,95 €</p>
+                    </div>
+                </div>
+
+                <div class="produit-card" onclick="calculerAchat(this)" data-nom="Guitare Electrique" data-prix="5299" data-envio="12" data-temps="3-5 días">
+                    <div class="produit-img"><img src="GUITARE ELECTRIQUE 5299.JPG" alt="Guitare" ondblclick="ouvrirZoomProduit(this.src, event)"></div>
+                    <div class="produit-info">
+                        <span class="categoria-label">Instrumentos</span>
+                        <h4>Guitare Electrique</h4>
+                        <p class="produit-prix">5299 €</p>
+                    </div>
+                </div>
+                <div class="produit-card" onclick="calculerAchat(this)" data-nom="Violon z" data-prix="39580" data-envio="150" data-temps="10-15 días"> 
+                     <div class="produit-img"><img src="VIOLON 29000.JPG" alt="Violon" ondblclick="ouvrirZoomProduit(this.src, event)"></div>
+                    <div class="produit-info">
+                        <span class="categoria-label">Instrumentos</span>
+                        <h4>Violon z</h4>
+                        <p class="produit-prix">45000 €</p>
+                    </div>
+                </div>
+
+                <div class="produit-card" onclick="calculerAchat(this)" data-nom="YAMAHA Contra Bajo" data-prix="4895" data-envio="12" data-temps="10-15 días">
+                    <div class="produit-img"><img src="YAMAHA CONTRE BASS 3.892.JPG" alt="Violon" ondblclick="ouvrirZoomProduit(this.src, event)"></div>
+                    <div class="produit-info">
+                        <span class="categoria-label">Instrumentos</span>
+                        <h4>YAMAHA Contra Bajo</h4>
+                        <p class="produit-prix">4895 €</p>
+                    </div>
+                </div>
+                <div class="produit-card" onclick="calculerAchat(this)" data-nom="YAMAHA Contra Bajo T" data-prix="4990" data-envio="12" data-temps="10-15 días">
+                    <div class="produit-img"><img src="YAMAYA CONTRE BASS 1.700.JPG" alt="Violon" ondblclick="ouvrirZoomProduit(this.src, event)"></div>
+                    <div class="produit-info">
+                        <span class="categoria-label">Instrumentos</span>
+                        <h4>YAMAHA Contra Bajo T</h4>
+                        <p class="produit-prix">4990 €</p>
+                    </div>
+                </div>
+                <div class="produit-card" onclick="calculerAchat(this)" data-nom="YAMAHA YAS-62" data-prix="45000" data-envio="150" data-temps="10-15 días"> 
+                     <div class="produit-img"><img src="FLUTE 2.759.JPG" alt="Flute" ondblclick="ouvrirZoomProduit(this.src, event)"></div>
+                    <div class="produit-info">
+                        <span class="categoria-label">Instrumentos</span>
+                        <h4>YAMAHA YAS-62</h4>
+                        <p class="produit-prix">2739 €</p>
+                    </div>
+                </div>
+
+                <div class="produit-card" onclick="calculerAchat(this)" data-nom="Seeburg Acoustic Line GL16c dp 1000" data-prix="2799" data-envio="12" data-temps="3-5 días">
+                    <div class="produit-img"><img src="bafle.JPG" alt="Casque" ondblclick="ouvrirZoomProduit(this.src, event)"></div>
+                    <div class="produit-info">
+                        <span class="categoria-label">Audio</span>
+                        <h4>Seeburg Acoustic Line GL16c dp 1000</h4>
+                        <p class="produit-prix">2799 €</p>
+                    </div>
+                </div>
+               
+                
+
+                <div class="produit-card" onclick="calculerAchat(this)" data-nom="Flute Clarinet" data-prix="3599.00" data-envio="12" data-temps="7-10 días">
+                    <div class="produit-img"><img src="flute2.JPG" alt="Flutee" ondblclick="ouvrirZoomProduit(this.src, event)"></div>
+                    <div class="produit-info">
+                        <span class="categoria-label">Instrumentos</span>
+                        <h4>lute Clarinet</h4>
+                        <p class="produit-prix">3599.00 €</p>
+                    </div>
+                </div>
+                <div class="produit-card" onclick="calculerAchat(this)" data-nom="Flute Prestige" data-prix="6222.00" data-envio="12" data-temps="3-5 días">
+                    <div class="produit-img"><img src="flute3.JPG" alt="Flute" ondblclick="ouvrirZoomProduit(this.src, event)"></div>
+                    <div class="produit-info">
+                        <span class="categoria-label">Instrumentos</span>
+                        <h4>Flute Prestige</h4>
+                        <p class="produit-prix">6222.00 €</p>
+                    </div>
+                </div>
+                <div class="produit-card" onclick="calculerAchat(this)" data-nom="Moeck" data-prix="4311.000" data-envio="150" data-temps="10-15 días"> 
+                     <div class="produit-img"><img src="FLUTE 350.JPG" alt="Flute" ondblclick="ouvrirZoomProduit(this.src, event)"></div>
+                    <div class="produit-info">
+                        <span class="categoria-label">Instrumentos</span>
+                        <h4>Flute Moeck</h4>
+                        <p class="produit-prix">4311.000 €</p>
+                    </div>
+                </div>
+
+                
+
+                </section>
+        </div>
+
+        <div id="section-ecouter" class="page-contenu" style="display: none;">
+            <section id="gauche">
+                <div class="jouervideo">
+                    <video id="main-video" controls>
+                        <source src="" type="video/mp4">
+                        Tu navegador no soporta video.
+                    </video>
+
+                    <div class="info-video">
+                        <h2 id="titulo">Selecciona una pista</h2>
+                        <p><strong>Artista:</strong> <span id="artista">-</span></p>
+                        <p><strong>Género:</strong> <span id="genero">-</span></p>
+                        <p><strong>Solistas:</strong> <span id="solistas">-</span></p> 
+                        <p><strong>Instrumento:</strong> <span id="instrumento">-</span></p>
+                        <p><strong>Abono:</strong> <span id="abono">-</span></p> 
+                        <p><strong>Freemium:</strong> <span id="freemium">-</span></p>
+                    </div>
+
+                    <p class="prix">Precio: <span id="precio">0,00 €</span></p>
+
+                    <div class="boutique-video">
+                        <button class="btn-download" onclick="ajouterAuPanier()">Ajouter au panier</button>
+                        <button class="btn-pay" onclick="ouvrirPanier()">Comprar ahora</button>
+                    </div>
+                </div>
+            </section>
+            
+             <section id="droite">
+                <div class="ariba">
+                    <video class="piste" id="001" src="Ludovico Einaudi - Nuvole Bianche.mp4" data-creator="ludovico Einaudi" data-titulo="Nuvile Bianche" data-solistas="ludovico Einaudi" data-instrument-principal="Piano" data-genero="Neo-classica" data-freemium="si (MP3 128kbps)" data-abono="Inclus(FLAC Hi-Res)" data-compra-por-pista="18.49"></video>
+                    <video class="piste" id="006" src="videoplayback (1).mp4" data-creator="Olafur arnalds" data-titulo="Doria" data-solistas="Olafur arnalds" data-instrument-principal="Piano / Électro" data-genero="Classique Contemporain" data-freemium="freemium si (MP3 128kbps)" data-abono="Inclus (FLAC Hi-Res)" data-compra-por-pista="1.49"></video>
+                    <video class="piste" id="002" src="vidssave.com Ludovico Einaudi - Nuvole Bianche (Live From The Steve Jobs Theatre _ 2019) 360P.mp4" data-creator="Max Richter" data-titulo="Nuvile Bianche" data-solistas="Louisa Fuller" data-instrument-principal="Quintette à cordes" data-genero="Minimalisme" data-freemium="freemium si Extrat 30 sec" data-abono="Inclus (FLAC Hi-Res)" data-compra-por-pista="1.99"></video>
+                    <video class="piste" id="003" src="vidssave.com Spiegel im Spiegel for Cello and Piano (Arvo Pärt) 144P.mp4" data-creator="Arvo Pärt" data-titulo="Spiegel im Spiegel" data-solistas="Tasmin Little" data-instrument-principal="Violon" data-genero="Minimalisme sacré" data-freemium="si(con pubs)" data-abono="Inclus (FLAC Hi-Res)" data-compra-por-pista="1.49"></video>
+                    <video class="piste" id="004" src="videoplayback (4)  ko.mp4" data-creator="ludovico Einaudi" data-titulo="Nuvile Bianche" data-solistas="ludovico Einaudi" data-instrument-principal="Piano" data-genero="Neo-classica" data-freemium="si (MP3 128kbps)" data-abono="Inclus(FLAC Hi-Res)" data-compra-por-pista="18.49"></video>
+                    <video class="piste" id="005" src="Philip Glass - Metamorphosis 1.mp4" data-creator="Olafur arnalds" data-titulo="Doria" data-solistas="Olafur arnalds" data-instrument-principal="Piano / Électro" data-genero="Classique Contemporain" data-freemium="freemium si (MP3 128kbps)" data-abono="Inclus (FLAC Hi-Res)" data-compra-por-pista="1.49"></video>
+                    <video class="piste" id="007" src="videoplayback (2).mp4" data-creator="Max Richter" data-titulo="Nuvile Bianche" data-solistas="Louisa Fuller" data-instrument-principal="Quintette à cordes" data-genero="Minimalisme" data-freemium="freemium si Extrat 30 sec" data-abono="Inclus (FLAC Hi-Res)" data-compra-por-pista="1.99"></video>
+                </div>
+
+              <div class="medio">
+    <div class="piste" id="01" data-audio="true" data-creator="Olafur arnalds" data-titulo="Doria" data-solistas="Olafur arnalds" data-instrument-principal="Piano / Électro" data-genero="Classique Contemporain" data-freemium="freemium si (MP3 128kbps)" data-abono="Inclus (FLAC Hi-Res)" data-compra-por-pista="1.49">
+        <img src="a1.jpg" alt="Olafur arnalds"> <audio src="Asa_-_EYO_(Official_audio)(360p).mp4"></audio></div>
+    <div class="piste" id="02" data-audio="true" data-creator="Olafur arnalds" data-titulo="Symphony" data-solistas="Olafur arnalds" data-instrument-principal="Piano / Électro" data-genero="Classique Contemporain" data-freemium="freemium si (MP3 128kbps)" data-abono="Inclus (FLAC Hi-Res)" data-compra-por-pista="1.49">
+        <img src="a9.jfif" alt="Olafur arnalds"> <audio src="Clean Bandit - Symphony (feat. Zara Larsson) [Offi(MP3_70K).mp3"></audio></div>
+    <div class="piste" id="03" data-audio="true" data-creator="Olafur arnalds" data-titulo="Doria" data-solistas="Olafur arnalds" data-instrument-principal="Piano / Électro" data-genero="Classique Contemporain" data-freemium="freemium si (MP3 128kbps)" data-abono="Inclus (FLAC Hi-Res)" data-compra-por-pista="1.49">
+        <img src="a2.jpg" alt="Olafur arnalds">  <audio src="Lucien DEISS - Paroles de Dieu - Pâques Pentecôte/"></audio> </div>
+    <div class="piste" id="04" data-audio="true" data-creator="Olafur arnalds" data-titulo="Doria" data-solistas="Olafur arnalds" data-instrument-principal="Piano / Électro" data-genero="Classique Contemporain" data-freemium="freemium si (MP3 128kbps)" data-abono="Inclus (FLAC Hi-Res)" data-compra-por-pista="1.49">
+        <img src="a3.jfif" alt="Olafur arnalds"><audio src="Lucien Deiss - Paroles de Dieu 1 - Chants gégorien/"></audio></div>
+    <div class="piste" id="05" data-audio="true" data-creator="Olafur arnalds" data-titulo="Doria" data-solistas="Olafur arnalds" data-instrument-principal="Piano / Électro" data-genero="Classique Contemporain" data-freemium="freemium si (MP3 128kbps)" data-abono="Inclus (FLAC Hi-Res)" data-compra-por-pista="1.49">
+        <img src="a6.jpg" alt="Olafur arnalds"> <audio src="Lucien Deiss - Vivante Parole/02. O Seigneur envoie ton Esprit.mp3"></audio> </div>
+    <div class="piste" id="06" data-audio="true" data-creator="Olafur arnalds" data-titulo="Doria" data-solistas="Olafur arnalds" data-instrument-principal="Piano / Électro" data-genero="Classique Contemporain" data-freemium="freemium si (MP3 128kbps)" data-abono="Inclus (FLAC Hi-Res)" data-compra-por-pista="1.49">
+        <img src="a10.jfif" alt="Olafur arnalds"><audio src="Asa_-_Satan_be_gone_(Official_audio)(256k).mp3"></audio></div>
+    <div class="piste" id="07" data-audio="true" data-creator="Olafur arnalds" data-titulo="Doria" data-solistas="Olafur arnalds" data-instrument-principal="Piano / Électro" data-genero="Classique Contemporain" data-freemium="freemium si (MP3 128kbps)" data-abono="Inclus (FLAC Hi-Res)" data-compra-por-pista="1.49">
+        <img src="a7.jpeg" alt="Olafur arnalds"><audio src="Asa_-__Asa_(Asha)__Full_Album(128k).m4a"></audio>  </div>
+</div>
+
+<div class="abajo">
+    
+    <div class="piste" id="01" data-audio="true" data-creator="Olafur arnalds" data-titulo="Doria" data-solistas="Olafur arnalds" data-instrument-principal="Piano / Électro" data-genero="Classique Contemporain" data-freemium="freemium si (MP3 128kbps)" data-abono="Inclus (FLAC Hi-Res)" data-compra-por-pista="1.49">
+        <img src="a1.jpg" alt="Olafur arnalds"> <audio src="Lucien Deiss - Paroles de Dieu 2 - Renaissance/05. Exsultate justi in Domino.mp3"></audio></div>
+    <div class="piste" id="02" data-audio="true" data-creator="Olafur arnalds" data-titulo="Symphony" data-solistas="Olafur arnalds" data-instrument-principal="Piano / Électro" data-genero="Classique Contemporain" data-freemium="freemium si (MP3 128kbps)" data-abono="Inclus (FLAC Hi-Res)" data-compra-por-pista="1.49">
+        <img src="a9.jfif" alt="Olafur arnalds"> <audio src="Lucien DEISS - Paroles de Dieu 5 - Vierge Marie/02. Epithalame royal.mp3"></audio></div>
+    <div class="piste" id="03" data-audio="true" data-creator="Olafur arnalds" data-titulo="Doria" data-solistas="Olafur arnalds" data-instrument-principal="Piano / Électro" data-genero="Classique Contemporain" data-freemium="freemium si (MP3 128kbps)" data-abono="Inclus (FLAC Hi-Res)" data-compra-por-pista="1.49">
+        <img src="a2.jpg" alt="Olafur arnalds">  <audio src="Lucien DEISS - Paroles de Dieu 5 - Vierge Marie/06. Et les fleurs des rosiers.mp3"></audio> </div>
+    <div class="piste" id="04" data-audio="true" data-creator="Olafur arnalds" data-titulo="Doria" data-solistas="Olafur arnalds" data-instrument-principal="Piano / Électro" data-genero="Classique Contemporain" data-freemium="freemium si (MP3 128kbps)" data-abono="Inclus (FLAC Hi-Res)" data-compra-por-pista="1.49">
+        <img src="a3.jfif" alt="Olafur arnalds"><audio src="Lucien Deiss - Prières pour tes merveilles 3/16. Dans la paix, la grande barque.mp3"></audio></div>
+    <div class="piste" id="05" data-audio="true" data-creator="Olafur arnalds" data-titulo="Doria" data-solistas="Olafur arnalds" data-instrument-principal="Piano / Électro" data-genero="Classique Contemporain" data-freemium="freemium si (MP3 128kbps)" data-abono="Inclus (FLAC Hi-Res)" data-compra-por-pista="1.49">
+        <img src="a6.jpg" alt="Olafur arnalds"> <audio src="Lucien DEISS - Paroles de Dieu 3 - Avent Noël Carême/03. Venez, Seigneur.mp3"></audio> </div>
+    <div class="piste" id="06" data-audio="true" data-creator="Olafur arnalds" data-titulo="Doria" data-solistas="Olafur arnalds" data-instrument-principal="Piano / Électro" data-genero="Classique Contemporain" data-freemium="freemium si (MP3 128kbps)" data-abono="Inclus (FLAC Hi-Res)" data-compra-por-pista="1.49">
+        <img src="a10.jfif" alt="Olafur arnalds"><audio src="Asa_-_Satan_be_gone_(Official_audio)(256k).mp3"></audio></div>
+    <div class="piste" id="07" data-audio="true" data-creator="Olafur arnalds" data-titulo="Doria" data-solistas="Olafur arnalds" data-instrument-principal="Piano / Électro" data-genero="Classique Contemporain" data-freemium="freemium si (MP3 128kbps)" data-abono="Inclus (FLAC Hi-Res)" data-compra-por-pista="1.49">
+        <img src="a7.jpeg" alt="Olafur arnalds"><audio src="Asa_-__Asa_(Asha)__Full_Album(128k).m4a"></audio>  </div>
+</div>
+            </section>
+        </div>
+
+
+
+
+        <div id="section-ver" class="page-contenu" style="display: none;">
+            <div class="ver-layout-top" style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px;">
+                <section id="ver-gauche">
+                    <h3>Masterclass & Repeticiones</h3>
+                    <div class="video-grid-entrainement">
+                        <div class="card-video">Entrenamiento 1: Piano Base</div>
+                    </div>
+                </section>
+
+                <section id="ver-droite">
+                    <h3>Testimonios de Clientes</h3>
+                    <div class="avis-client">
+                        <p>"El piano Steinway es una joya. Entrega perfecta."</p>
+                        <span>- Juan M.</span>
+                    </div>
+                </section>
+            </div>
+
+            <section id="ver-eventos">
+                <div class="eventos-header">
+                    <h3>Próximos Eventos</h3>
+                    <p>Descubre los conciertos y masterclasses en tu ciudad</p>
+                </div>
+
+                <div class="eventos-lista">
+                    <div class="evento-card">
+                        <div class="evento-date">
+                            <span class="dia">24</span><span class="mes">MAY</span>
+                        </div>
+                        <div class="evento-info">
+                            <h4>Recital de Piano: Chopin</h4>
+                            <p class="evento-lieu">📍 Auditorio Nacional, Madrid</p>
+                        </div>
+                        <div class="evento-action">
+                            <button class="btn-ticket" data-titulo="Recital de Piano: Chopin" data-featuring="Marc André (Solista)" data-repertoire="Nocturnos Op. 9, Op. 27 y Op. 48" data-programme="20:00h Puertas / 20:30h Inicio" data-ville="Madrid" data-prix="25" data-img="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?q=80&w=800" onclick="ouvrirModalEvenement(this)">
+                                Ver detalles
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="evento-card">
+                        <div class="evento-date">
+                            <span class="dia">02</span><span class="mes">JUN</span>
+                        </div>
+                        <div class="evento-info">
+                            <h4>Festival de Cuerdas d'Ete</h4>
+                            <p class="evento-lieu">📍 Palau de la Música, Barcelona</p>
+                        </div>
+                        <div class="evento-action">
+                            <button class="btn-ticket" data-titulo="Festival de Cuerdas d'Ete" data-featuring="Varios Solistas" data-repertoire="Vivaldi & Bach" data-programme="19:00h Inicio" data-ville="Barcelona" data-prix="40" data-img="https://images.unsplash.com/photo-1465821185615-20b3c2fbf41b?q=80&w=800" onclick="ouvrirModalEvenement(this)">
+                                Ver detalles
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="modal-autorisation" class="modal-overlay">
+            <div class="modal-content">
+                <h2 id="modal-title">Connexion</h2>
+                <div class="photo-container">
+                    <div id="photo-preview">Photo</div>
+                    <input type="file" id="upload-photo" accept="image/*">
+                </div>
+                <input type="text" id="username" placeholder="Nom d'utilisateur">
+                <input type="password" id="password" placeholder="Mot de passe">
+                <div class="modal-buttons">
+                    <button class="btn-annuler" onclick="fermerModales()">Volver</button>
+                    <button class="btn-enregistrer" id="btn-main" onclick="validerInscription()">Se connecter</button>
+                </div>
+                <p class="switch-form">Pas encore de compte ? <a href="#" onclick="basculerFormulaire()">S'enregistrer ici</a></p>
+            </div>
+        </div>
+
+        <div id="modal-registre" class="modal-overlay">
+            <div class="modal-content large">
+                <h2>Créer un compte Membre</h2>
+                <div class="form-grid">
+                    <div class="photo-section">
+                        <div id="preview-large">Photo</div>
+                        <input type="file" id="input-photo" accept="image/*" onchange="apercuPhoto(this)">
+                    </div>
+                    <div class="inputs-section">
+                        <input type="text" id="reg-nom" placeholder="Nom">
+                        <input type="text" id="reg-prenom" placeholder="Prénom">
+                        <input type="number" id="reg-annee" placeholder="Année de naissance">
+                        <input type="email" id="reg-mail" placeholder="Email ou Téléphone">
+                        <input type="password" id="reg-pass" placeholder="Mot de passe">
+                    </div>
+                </div>
+                <div class="modal-buttons">
+                    <button onclick="fermerRegistre()">Volver</button>
+                    <button class="btn-enregistrer" onclick="finaliserInscription()">S'enregistrer</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-recharge" class="modal-overlay">
+    <div class="modal-content">
+        <h2>Recharge Real</h2>
+        <p id="info-paiement-manquant"></p>
+        <div style="margin-top: 20px;">
+            
+            <input type="number" id="montant-recharge" placeholder="Monto a recargar (€ / $)" style="width: 100%; margin-bottom: 10px; box-sizing: border-box;" min="1">
+            
+            <select id="devise" style="width: 100%; margin-bottom: 10px;">
+                <option value="EUR">Euro (Standard Européen)</option>
+                <option value="USD">Dollar (Premium)</option>
+            </select>
+            <input type="text" id="card-number" placeholder="NUMÉRO DE CARTE">
+            <div style="display: flex; gap: 10px;">
+                <input type="text" placeholder="MM/AA" style="flex: 1;">
+                <input type="password" id="card-pass" placeholder="CVV" style="flex: 1;">
+            </div>
+        </div>
+        <div class="modal-buttons">
+            <button class="btn-annuler" onclick="fermerModales()">Volver</button>
+            <button class="btn-enregistrer" onclick="validerRecharge()">CRÉDITER LE COMPTE</button>
+        </div>
+    </div>
+</div>
+
+<div id="modal-confirmation" class="modal-overlay">
+    <div class="modal-content" style="max-width: 600px;">
+        <h2>Confirmation de Commande</h2>
+        <div id="recap-achat" style="text-align: left; margin: 20px 0; border: 1px solid rgba(212, 175, 55, 0.2); padding: 20px; background: rgba(255,255,255,0.02);"></div>
+        <div id="alerte-solde-musique" style="display:none; color: #ff4444; margin-bottom: 20px; font-weight: bold;">
+            <p>⚠️ Saldo insuficiente para esta compra.</p>
+            <button onclick="ouvrirModal(document.getElementById('modal-recharge'))" style="background:#d4af37; color:black; border:none; padding:10px; width:100%; cursor:pointer; margin-top:10px; font-weight: bold;">RECARGAR CUENTA</button>
+        </div>
+        <div class="modal-buttons">
+            <button class="btn-annuler" onclick="fermerModales()">Volver</button>
+            <button class="btn-enregistrer" id="btn-confirmer-paiement">CONFIRMER LE PAIEMENT</button>
+        </div>
+    </div>
+</div>
+
+        <div id="modal-notification" class="modal-overlay" style="display: none; z-index: 11000;">
+            <div class="modal-content" style="max-width: 400px; padding: 25px; text-align: center; border: 1px solid #d4af37;">
+                <h3 id="notif-titre" style="color: #d4af37; margin-bottom: 15px;">Notification</h3>
+                <p id="notif-message" style="color: #fff; line-height: 1.5; margin-bottom: 20px;"></p>
+                <button class="btn-enregistrer" onclick="fermerNotification()" style="width: 100%;">Entendido</button>
+            </div>
+        </div>
+
+        <div id="modal-evenement-detail" class="modal-overlay">
+            <div class="modal-content" style="max-width: 900px; display: flex; padding: 0; overflow: hidden; height: 500px;">
+                <div style="flex: 1; background: #000;">
+                    <img id="ev-affiche" src="" style="width: 100%; height: 100%; object-fit: cover;" alt="Affiche">
+                </div>
+                <div style="flex: 1; padding: 40px; text-align: left; background: #1a1a1a; position: relative;">
+                    <button onclick="fermerModalEv()" style="position: absolute; top: 15px; right: 20px; background:none; border:none; color:#fff; font-size:30px; cursor:pointer;">&times;</button>
+                    <h2 id="ev-titre" style="color: #d4af37; margin-bottom: 20px;">-</h2>
+                    <div style="color: #ccc; font-size: 0.9em; line-height: 1.6;">
+                        <p><strong>👥 Featuring:</strong> <span id="ev-feat">-</span></p>
+                        <p><strong>🎼 Repertorio:</strong> <span id="ev-repo">-</span></p>
+                        <p><strong>📅 Programa:</strong> <span id="ev-prog">-</span></p>
+                        <p><strong>📍 Ciudad:</strong> <span id="ev-ville">-</span></p>
+                    </div>
+                    <div style="margin-top: 40px; border-top: 1px solid #333; padding-top: 20px;">
+                        <p style="font-size: 1.5em; color: #fff;">Precio: <span id="ev-prix">0 €</span></p>
+                        <button class="btn-pay" style="width: 100%; margin-top: 15px;" onclick="confirmerAchatTicket()">RESERVAR ENTRADA</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="section-historias" class="page-contenu" style="display: none;">
+        <h1 class="main-title-info">Historias y Referencias</h1>
+        <p class="subtitle-info">Explora la historia de los artistas actuales de nuestra plataforma y los detalles técnicos de nuestro catálogo.</p>
+
+        <section class="info-section">
+            <h2 class="section-title-info"><span>01.</span> Nuestros Artistas Actuales</h2>
+            
+            <div class="info-grid">
+                
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <img src="ludovico.jfif" alt="Ludovico Einaudi" class="avatar-info">
+                        <h3>Ludovico Einaudi</h3>
+                    </div>
+                    <p class="info-card-text">
+                        Compositor y pianista italiano, uno de los máximos exponentes del minimalismo y la música neoclásica contemporánea. En nuestra plataforma puedes escuchar su obra maestra <strong>"Nuvole Bianche"</strong>, una pieza que destaca por su profunda carga emocional, sencillez armónica y un desarrollo melódico que ha cautivado a millones de oyentes en todo el mundo.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <img src="olafur arnalds.jpg" alt="Olafur Arnalds" class="avatar-info">
+                        <h3>Olafur Arnalds</h3>
+                    </div>
+                    <p class="info-card-text">
+                        Multiinstrumentista y productor galardonado originario de Islandia. Su enfoque combina de forma magistral el piano acústico con sordinas, quintetos de cuerda y sutiles elementos de música electrónica ambiental. Su pista insignia en nuestro sitio es <strong>"Doria"</strong>, un viaje sonoro melancólico y envolvente.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <img src="Hania Rani.jfif" alt="Hania Rani" class="avatar-info">
+                        <h3>Hania Rani</h3>
+                    </div>
+                    <p class="info-card-text">
+                        Pianista, compositora y cantante polaca. Su estilo musical rompe las fronteras tradicionales del piano clásico, integrando texturas atmosféricas y capturando incluso el sonido mecánico de los macillos del instrumento. Destaca en nuestra sección con su hipnotizante pieza titulada <strong>"Glass"</strong>.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <img src="Ryuichi Sakamoto.jfif" alt="Max Richter" class="avatar-info">
+                        <h3>Max Richter</h3>
+                    </div>
+                    <p class="info-card-text">
+                        Compositor germano-británico fundamental en el panorama del minimalismo moderno. Célebre por fusionar la tradición clásica con la tecnología digital y la literatura. En nuestra sección en vivo incluimos referencias a sus imponentes estructuras sonoras interpretadas por destacados solistas de cuerda.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <hr class="separator-info">
+
+        <section class="info-section">
+            <h2 class="section-title-info"><span>02.</span> Guía de Productos y Calidad de Audio</h2>
+            
+            <div class="info-grid">
+                
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="icon-product-info">🎹</div>
+                        <h3>Piano Acústico y Contemporáneo</h3>
+                    </div>
+                    <p class="info-card-text">
+                        El instrumento central de IBOUNDOUBLACK. Es la base fundamental para las obras de género Neo-clásico y Clásico Contemporáneo presentes en la web. Nos aseguramos de capturar la resonancia natural, la calidez de las maderas y la respuesta dinámica de cada tecla para ofrecer una experiencia íntima.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="icon-product-info">🎧</div>
+                        <h3>Tecnología de Audio: Freemium vs Abono</h3>
+                    </div>
+                    <p class="info-card-text">
+                        Disponemos de dos estándares de reproducción adaptados a tus necesidades técnicas:
+                        <br><br>
+                        • <strong>Freemium (MP3 128kbps):** Un formato comprimido ideal para conexiones rápidas que ofrece un acceso ágil a extractos y pistas base.
+                        <br>
+                        • <strong>Abono (FLAC Hi-Res):** Audio de alta resolución sin pérdidas (16-bit/24-bit). Conserva la pureza absoluta del estudio de grabación para los audiófilos más exigentes.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+   
+
+
+
+
+
+
+        <div id="modal-autorisation" class="modal-overlay">
+            <div class="modal-content">
+                <h2 id="modal-title">Connexion</h2>
+                <div class="photo-container">
+                    <div id="photo-preview">foto</div>
+                    <input type="file" id="upload-photo" accept="image/*">
+                </div>
+                <input type="text" id="username" placeholder="Nom d'utilisateur">
+                <input type="password" id="password" placeholder="Mot de passe">
+                <div class="modal-buttons">
+                    <button class="btn-annuler" onclick="fermerModales()">Volver</button>
+                    <button class="btn-enregistrer" id="btn-main" onclick="validerConnexion()">Iniciar sesión</button>
+                </div>
+                <p class="switch-form">¿No tienes cuenta? <a href="#" onclick="basculerFormulaire()">Regístrate aquí</a></p>
+            </div>
+        </div>
+
+        <div id="modal-registre" class="modal-overlay">
+            <div class="modal-content large">
+                <h2>Crear una cuenta de Miembro</h2>
+                <div class="form-grid">
+                    <div class="photo-section">
+                        <div id="preview-large">foto</div>
+                        <input type="file" id="input-photo" accept="image/*" onchange="apercuPhoto(this)">
+                    </div>
+                    <div class="inputs-section">
+                        <input type="text" id="reg-nom" placeholder="Nombre">
+                        <input type="text" id="reg-prenom" placeholder="apellido">
+                        <input type="number" id="reg-annee" placeholder="Año de nacimiento">
+                        <input type="email" id="reg-mail" placeholder="Email o Teléfono">
+                        <input type="password" id="reg-pass" placeholder="Contraseña">
+                    </div>
+                </div>
+                <div class="modal-buttons">
+                    <button onclick="fermerRegistre()">Volver</button>
+                    <button class="btn-enregistrer" onclick="finaliserInscription()">Regístrate</button>
+                </div>
+            </div>
+        </div>
+
+       <div id="modal-recharge" class="modal-overlay">
+    <div class="modal-content">
+        <h2>Recharge Real</h2>
+        <p id="info-paiement-manquant"></p>
+        <div style="margin-top: 20px;">
+            
+            <input type="number" id="montant-recharge" placeholder="Monto a recargar (€ / $)" style="width: 100%; margin-bottom: 10px; box-sizing: border-box;" min="1">
+            
+            <select id="devise" style="width: 100%; margin-bottom: 10px;">
+                <option value="EUR">Euro (Standard Européen)</option>
+                <option value="USD">Dollar (Premium)</option>
+            </select>
+            <input type="text" id="card-number" placeholder="NUMÉRO DE CARTE">
+            <div style="display: flex; gap: 10px;">
+                <input type="text" placeholder="MM/AA" style="flex: 1;">
+                <input type="password" id="card-pass" placeholder="CVV" style="flex: 1;">
+            </div>
+        </div>
+        <div class="modal-buttons">
+            <button class="btn-annuler" onclick="fermerModales()">Volver</button>
+            <button class="btn-enregistrer" onclick="validerRecharge()">CRÉDITER LE COMPTE</button>
+        </div>
+    </div>
+</div>
+
+<div id="modal-confirmation" class="modal-overlay">
+    <div class="modal-content" style="max-width: 600px;">
+        <h2>Confirmation de Commande</h2>
+        <div id="recap-achat" style="text-align: left; margin: 20px 0; border: 1px solid rgba(212, 175, 55, 0.2); padding: 20px; background: rgba(255,255,255,0.02);"></div>
+        <div id="alerte-solde-musique" style="display:none; color: #ff4444; margin-bottom: 20px; font-weight: bold;">
+            <p>⚠️ Saldo insuficiente para esta compra.</p>
+            <button onclick="ouvrirModal(document.getElementById('modal-recharge'))" style="background:#d4af37; color:black; border:none; padding:10px; width:100%; cursor:pointer; margin-top:10px; font-weight: bold;">RECARGAR CUENTA</button>
+        </div>
+        <div class="modal-buttons">
+            <button class="btn-annuler" onclick="fermerModales()">Volver</button>
+            <button class="btn-enregistrer" id="btn-confirmer-paiement">CONFIRMER LE PAIEMENT</button>
+        </div>
+    </div>
+</div>
+
+        <div id="modal-notification" class="modal-overlay" style="display: none; z-index: 11000;">
+            <div class="modal-content" style="max-width: 400px; padding: 25px; text-align: center; border: 1px solid #d4af37;">
+                <h3 id="notif-titre" style="color: #d4af37; margin-bottom: 15px;">Notificación</h3>
+                <p id="notif-message" style="color: #fff; line-height: 1.5; margin-bottom: 20px;"></p>
+                <button class="btn-enregistrer" onclick="fermerNotification()" style="width: 100%;">Entendido</button>
+            </div>
+        </div>
+
+        <div id="modal-evenement-detail" class="modal-overlay">
+            <div class="modal-content" style="max-width: 900px; display: flex; padding: 0; overflow: hidden; height: 500px;">
+                <div style="flex: 1; background: #000;">
+                    <img id="ev-affiche" src="" style="width: 100%; height: 100%; object-fit: cover;" alt="Affiche">
+                </div>
+                <div style="flex: 1; padding: 40px; text-align: left; background: #1a1a1a; position: relative;">
+                    <button onclick="fermerModalEv()" style="position: absolute; top: 15px; right: 20px; background:none; border:none; color:#fff; font-size:30px; cursor:pointer;">&times;</button>
+                    <h2 id="ev-titre" style="color: #d4af37; margin-bottom: 20px;">-</h2>
+                    <div style="color: #ccc; font-size: 0.9em; line-height: 1.6;">
+                        <p><strong>👥 Featuring:</strong> <span id="ev-feat">-</span></p>
+                        <p><strong>🎼 Repertorio:</strong> <span id="ev-repo">-</span></p>
+                        <p><strong>📅 Programa:</strong> <span id="ev-prog">-</span></p>
+                        <p><strong>📍 Ciudad:</strong> <span id="ev-ville">-</span></p>
+                    </div>
+                    <div style="margin-top: 40px; border-top: 1px solid #333; padding-top: 20px;">
+                        <p style="font-size: 1.5em; color: #fff;">Precio: <span id="ev-prix">0 €</span></p>
+                        <button class="btn-pay" style="width: 100%; margin-top: 15px;" onclick="confirmerAchatTicket()">RESERVAR ENTRADA</button>
+                    </div>
+
+
+
+                    <div class="zone-commentaires" style="background: #111; padding: 20px; border-top: 1px solid #333; margin-top: 20px;">
+    <h3 style="color: #d4af37; margin-bottom: 15px;">💬 Comentarios</h3>
+
+    <div id="liste-commentaires" style="max-height: 300px; overflow-y: auto; margin-bottom: 20px; padding-right: 10px;">
+        <p id="aucun-commentaire" style="color: #777; font-style: italic;">No hay comentarios aún. ¡Sé el primero en escribir!</p>
+    </div>
+
+    <div id="formulaire-commentaire">
+        <textarea id="texte-commentaire" placeholder="Escribe tu comentario aquí..." style="width: 100%; height: 80px; background: #222; color: #fff; border: 1px solid #444; padding: 10px; border-radius: 4px; resize: none; box-sizing: border-box;"></textarea>
+        <button onclick="ajouterCommentaire()" style="background: #d4af37; color: #000; border: none; padding: 10px 20px; font-weight: bold; cursor: pointer; border-radius: 4px; margin-top: 10px; width: 100%;">
+            Publicar Comentario
+        </button>
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </main> 
+    <div id="modal-zoom-produit" class="modal-overlay" style="display: none; justify-content: center; align-items: center; background: rgba(0,0,0,0.85); z-index: 20000; position: fixed; top: 0; left: 0; width: 100%; height: 100%;" onclick="fermerZoomProduit()">
+    <div style="position: relative; max-width: 80%; max-height: 80%;">
+        <span style="position: absolute; top: -40px; right: 0; color: white; font-size: 40px; cursor: pointer; font-weight: bold;">&times;</span>
+        <img id="img-zoom-cible" src="" alt="Gros plan produit" style="max-width: 100%; max-height: 80vh; border: 3px solid #d4af37; box-shadow: 0 0 20px rgba(0,0,0,0.8); display: block;">
+    </div>
+</div>
+
+
+<footer class="pied-de-page">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <span class="logo-triangle">▶</span> IBOUNDOUBLACK
+        </div>
+
+        <div class="footer-droite">
+            <div class="footer-copyright">
+                © IBOUNDOUBLACK 2026. MADE IN BILBAO 🇩🇪
+            </div>
+            <div class="footer-liens">
+                <a href="#">LEGAL</a> | 
+                <a href="#">PRENSA</a> | 
+                <a href="#">TÉRMINOS</a> | 
+                <a href="#">PRIVACIDAD</a> | 
+                <a href="#">COOKIES</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="SPO_F.js"></script>
+    
+
+</div>
+</body>
+</html>
